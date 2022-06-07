@@ -2,7 +2,7 @@
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-2">1</div>
+                <AlbumItem class="col-2" v-for="album in albums" :key="album.index" :album="album"/>
                 <div class="col-2">2</div>
                 <div class="col-2">3</div>
                 <div class="col-2">4</div>
@@ -14,6 +14,7 @@
 
 <script>
 import axios from 'axios';
+import AlbumItem from '../commons/AlbumItem.vue'
 export default {
     name:'SectionAlbums',
     data(){
@@ -21,11 +22,15 @@ export default {
             albums:[],
         }
     },
+    components:{
+        AlbumItem,
+
+    },
     created() {
         axios.get('https://flynn.boolean.careers/exercises/api/array/music')
         .then((response) => {
         // handle success
-        this.albums = response.data;
+        this.albums = response.data.response;
         })
         .catch((error) => {
         // handle error
@@ -37,9 +42,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    .row{
-        color: white;
-    }
+    // .container{
+    //     color: white;
+    // }
    
 
 </style>
