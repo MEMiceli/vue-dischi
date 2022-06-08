@@ -5,11 +5,12 @@
 </template>
 
 <script>
-import SectionAlbums from '../sections/SectionAlbums.vue'
+import SectionAlbums from '../sections/SectionAlbums.vue';
+
 export default {
     name: 'BaseMain',
     components:{
-        SectionAlbums
+        SectionAlbums,
     },
 
 }
