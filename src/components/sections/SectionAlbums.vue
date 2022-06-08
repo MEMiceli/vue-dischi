@@ -3,11 +3,7 @@
         <div class="container">
             <div class="row ">
                 <SearchBar @searching="filtergenre"/>
-                <AlbumItem class="col-12 col-sm-6 col-lg-2 mt-5" v-for="album in albums" :key="album.index" :album="album"/>
-                <div class="col-2">2</div>
-                <div class="col-2">3</div>
-                <div class="col-2">4</div>
-                <div class="col-2">5</div>
+                <AlbumItem class="col-12 col-sm-6 col-lg-2 mt-5" v-for="album in albumsearched" :key="album.index" :album="album"/>
             </div> 
         </div>
     </section>
@@ -35,6 +31,7 @@ export default {
         .then((response) => {
         // handle success
         this.albums = response.data.response;
+        this.albumsearched = response.data.response;
         })
         .catch((error) => {
         // handle error
@@ -43,8 +40,10 @@ export default {
     },
     methods: {
         filtergenre(searchtext) {
-            this.albumsearched = this.albums.filter((album)=> album.genre.toLowerCase().include(searchtext.toLowerCase()));
-
+            this.albumsearched = this.albums.filter((album) => album.genre === searchtext);
+            // this.albumsearched = this.albums.filter((album)=> {
+            //   return album.genre.toLowerCase().include(searchtext.toLowerCase());
+            // });
         }
     }
 }
