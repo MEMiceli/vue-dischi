@@ -1,8 +1,8 @@
 <template>
     <section>
         <div class="container">
-            <div class="row">
-                <AlbumItem class="col-2" v-for="album in albums" :key="album.index" :album="album"/>
+            <div class="row ">
+                <AlbumItem class="col-12 col-sm-6 col-lg-2 mt-5" v-for="album in albums" :key="album.index" :album="album"/>
                 <div class="col-2">2</div>
                 <div class="col-2">3</div>
                 <div class="col-2">4</div>
@@ -14,7 +14,7 @@
 
 <script>
 import axios from 'axios';
-import AlbumItem from '../commons/AlbumItem.vue'
+import AlbumItem from '../commons/AlbumItem.vue';
 export default {
     name:'SectionAlbums',
     data(){

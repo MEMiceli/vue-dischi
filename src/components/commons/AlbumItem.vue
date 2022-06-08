@@ -1,9 +1,9 @@
 <template>
   <div class="card">
       <img :src="album.poster" alt="">
-      <h4>{{album.title}}</h4>
-      <h5>{{album.uthor}}</h5>
-      <h5>{{album.year}}</h5>
+      <h5>{{album.title}}</h5>
+      <h6>{{album.author}}</h6>
+      <h6>{{album.year}}</h6>
   </div>
 </template>
 
@@ -21,10 +21,16 @@ export default {
 .card{
   background-color: var(--primary-color);
   text-align: center;
-  color: white;
-  padding:.625rem
+  
   img{
     max-width: 100%;
+    padding:.800rem
+  }
+  h6{
+    color: silver;
+  }
+  h5{
+    color: whitesmoke;
   }
 }
     
